@@ -25,11 +25,59 @@ y datos de producción no deben versionarse.
   propia imagen de contenedor.
 - `connect-work-web` contiene la aplicación Next.js y publica su propia imagen
   de contenedor.
-- `connect-work-infra` referencia esas imágenes y define cómo se ejecutan junto
-  con PostgreSQL y Caddy.
+- `connect-work-infra` referencia esas imágenes y define cómo se ejecutan
+  junto con PostgreSQL y Caddy.
+
+## Entorno local
+
+### Requisitos
+
+- Docker con el plugin Docker Compose.
+
+### PostgreSQL
+
+Desde la raíz del repositorio:
+
+```bash
+cd local
+cp .env.example .env
+```
+
+Edita `.env` y reemplaza la contraseña de ejemplo antes del primer inicio.
+
+Valida la configuración:
+
+```bash
+docker compose --env-file .env config
+```
+
+Inicia PostgreSQL:
+
+```bash
+docker compose --env-file .env up -d db
+docker compose --env-file .env ps
+```
+
+La base queda disponible solamente en `127.0.0.1` y en el puerto configurado
+por `POSTGRES_PORT`.
+
+Para consultar los logs:
+
+```bash
+docker compose --env-file .env logs -f db
+```
+
+Para detener el entorno conservando los datos:
+
+```bash
+docker compose --env-file .env down
+```
+
+No agregues `-v` al comando anterior salvo que quieras eliminar también el
+volumen y todos los datos locales.
 
 ## Estado actual
 
-El repositorio se encuentra en su etapa inicial. La configuración de Docker
-Compose, los entornos y los scripts operativos se incorporarán de forma
-incremental y se documentarán a medida que existan.
+El entorno local incluye PostgreSQL con persistencia, healthcheck y acceso
+limitado a `127.0.0.1`. La API y la aplicación web se incorporarán cuando sus
+repositorios estén disponibles.
