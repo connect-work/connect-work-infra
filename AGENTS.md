@@ -16,9 +16,14 @@ código de aplicación ni construye las imágenes de la API o del front.
 
 ## Comandos
 
-Todavía no hay comandos operativos versionados. No inventes comandos: cuando
-existan los archivos correspondientes, documenta aquí cómo validarlos y
-ejecutarlos.
+Ejecuta estos comandos desde `local/` después de copiar `.env.example` a
+`.env`.
+
+- Validar Compose: `docker compose --env-file .env config`.
+- Levantar PostgreSQL: `docker compose --env-file .env up -d db`.
+- Ver el estado: `docker compose --env-file .env ps`.
+- Ver logs: `docker compose --env-file .env logs -f db`.
+- Detener el entorno: `docker compose --env-file .env down`.
 
 ## Reglas
 
@@ -27,7 +32,9 @@ ejecutarlos.
 - Nunca versiones secretos, archivos `.env` reales, claves SSH, certificados
   privados, dumps de base de datos ni datos de producción.
 - Usa tags explícitos para las imágenes; nunca uses `latest`.
-- PostgreSQL debe permanecer en una red interna y no exponerse a internet.
+- En local, PostgreSQL puede publicar su puerto únicamente en `127.0.0.1`.
+- En staging y producción, PostgreSQL debe usar una red interna y no publicar
+  puertos hacia el host.
 - En staging y producción, solo Caddy puede publicar los puertos 80 y 443.
 - No ejecutes `docker compose down -v` en staging ni en producción: elimina
   los volúmenes persistentes.

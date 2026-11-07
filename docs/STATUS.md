@@ -1,6 +1,6 @@
 # Estado del proyecto
 
-Última actualización: 2026-11-06 · por: Codex
+Última actualización: 2026-11-07 · por: Codex
 
 ## Hecho
 
@@ -10,6 +10,8 @@
 - Base inicial del repositorio preparada con README, exclusión de secretos,
   reglas para agentes, flujo de trabajo, convención de commits, plantilla de
   pull request y registro de decisiones.
+- Entorno local de PostgreSQL 18 preparado con volumen persistente,
+  healthcheck, rotación de logs y puerto limitado a `127.0.0.1`.
 
 ## En curso
 
@@ -17,7 +19,6 @@
 
 ## Próximo
 
-- Crear el entorno local con Docker Compose, comenzando por PostgreSQL.
 - Incorporar API y web al Compose local cuando ambos proyectos estén listos.
 
 ## Decisiones pendientes
@@ -30,4 +31,4 @@
 
 ## Bloqueos
 
-- Ninguno para iniciar el entorno local.
+- Ninguno para incorporar API y web cuando sus repositorios estén disponibles.
