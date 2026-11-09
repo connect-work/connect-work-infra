@@ -33,6 +33,26 @@ y datos de producción no deben versionarse.
 ### Requisitos
 
 - Docker con el plugin Docker Compose.
+- Python 3.9 o superior y `pipx` para las validaciones locales.
+
+### Validaciones
+
+Desde la raíz del repositorio, instala y activa los hooks locales:
+
+```bash
+pipx install pre-commit==4.3.0
+pre-commit install
+```
+
+Para ejecutar manualmente todas las validaciones:
+
+```bash
+pre-commit run --all-files
+```
+
+Los hooks comprueban formato básico, YAML, workflows de GitHub Actions,
+secretos y la configuración de Docker Compose. El CI repite estas validaciones
+y además analiza el historial completo del repositorio en busca de secretos.
 
 ### PostgreSQL
 

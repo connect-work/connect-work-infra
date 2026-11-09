@@ -16,10 +16,16 @@ código de aplicación ni construye las imágenes de la API o del front.
 
 ## Comandos
 
+Desde la raíz del repositorio:
+
+- Ejecutar todas las validaciones: `pre-commit run --all-files`.
+
 Ejecuta estos comandos desde `local/` después de copiar `.env.example` a
 `.env`.
 
-- Validar Compose: `docker compose --env-file .env config`.
+- Validar la configuración versionable:
+  `docker compose --env-file .env.example config`.
+- Validar la configuración local: `docker compose --env-file .env config`.
 - Levantar PostgreSQL: `docker compose --env-file .env up -d db`.
 - Ver el estado: `docker compose --env-file .env ps`.
 - Ver logs: `docker compose --env-file .env logs -f db`.
@@ -38,6 +44,8 @@ Ejecuta estos comandos desde `local/` después de copiar `.env.example` a
 - En staging y producción, solo Caddy puede publicar los puertos 80 y 443.
 - No ejecutes `docker compose down -v` en staging ni en producción: elimina
   los volúmenes persistentes.
+- Usa permisos mínimos en GitHub Actions y fija las acciones de terceros a un
+  SHA completo, documentando la versión con un comentario.
 - No conviertas una decisión pendiente en una regla sin registrarla y obtener
   confirmación del equipo.
 - No hagas commits ni push salvo que el desarrollador lo pida explícitamente.
