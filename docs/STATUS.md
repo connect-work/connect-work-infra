@@ -12,6 +12,10 @@
   pull request y registro de decisiones.
 - Entorno local de PostgreSQL 18 preparado con volumen persistente,
   healthcheck, rotación de logs y puerto limitado a `127.0.0.1`.
+- Validaciones locales y CI configurados con pre-commit, lint de YAML y
+  GitHub Actions, detección de secretos y verificación del Compose local.
+- Check `Validate repository` ejecutado correctamente y configurado como
+  obligatorio para `main`.
 
 ## En curso
 
@@ -31,4 +35,4 @@
 
 ## Bloqueos
 
-- Ninguno para incorporar API y web cuando sus repositorios estén disponibles.
+- Ninguno.
