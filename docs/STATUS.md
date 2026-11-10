@@ -14,6 +14,8 @@
   healthcheck, rotación de logs y puerto limitado a `127.0.0.1`.
 - Validaciones locales y CI configurados con pre-commit, lint de YAML y
   GitHub Actions, detección de secretos y verificación del Compose local.
+- Check `Validate repository` ejecutado correctamente y configurado como
+  obligatorio para `main`.
 
 ## En curso
 
@@ -21,8 +23,6 @@
 
 ## Próximo
 
-- Confirmar la primera ejecución del CI y exigir su check en el ruleset de
-  `main`.
 - Incorporar API y web al Compose local cuando ambos proyectos estén listos.
 
 ## Decisiones pendientes
@@ -35,4 +35,4 @@
 
 ## Bloqueos
 
-- Ninguno para ejecutar la primera validación del CI.
+- Ninguno.
